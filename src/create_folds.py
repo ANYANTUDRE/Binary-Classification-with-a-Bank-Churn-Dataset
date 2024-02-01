@@ -1,4 +1,3 @@
-import os
 import config
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold, StratifiedGroupKFold
@@ -10,7 +9,7 @@ if __name__ == "__main__":
 
     # create new column called kfold and fill it with -1
     df["kfold"] = -1
-    
+
     # randomize the rows of the data
     df = df.sample(frac=1).reset_index(drop=True)
 

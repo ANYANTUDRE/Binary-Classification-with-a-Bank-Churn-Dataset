@@ -1,5 +1,3 @@
-from sklearn import linear_model
-from sklearn import tree
 from sklearn import ensemble
 import xgboost as xgb
 import lightgbm as lgbm
@@ -12,7 +10,7 @@ models = {
                                                     ),  # bon score, rivalise avec XGBoost
 
     #"extra": ensemble.ExtraTreesClassifier(), # nope, pas mieux que les autres gbdt
-    
+
     "xgb": xgb.XGBClassifier(n_jobs=-1, 
                              #eta=0.01, 
                              #gamma=0.5, 
