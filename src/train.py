@@ -1,43 +1,33 @@
 import os
 import argparse
-
 import config
 import model_dispatcher
-
 import joblib
 import pandas as pd 
 from sklearn import metrics
-from sklearn import tree
 
 def run(fold, model):
     # read the training data with folds
     df = pd.read_csv(config.TRAINING_FILE)
 
-    mapping_geo = {
-        "France": 0,
-        "Spain": 1,
-        "Germany": 2,
-    }
-    mapping_Gender = {
-        "Male": 0,
-        "Female": 1
-    }
-    df.loc[:, "Geography"] = df.Geography.map(mapping_geo)
+    mapping_Geography = {"France": 0, "Spain": 1, "Germany": 2}
+    mapping_Gender = {"Male": 0, "Female": 1}
+    df.loc[:, "Geography"] = df.Geography.map(mapping_Geography)
     df.loc[:, "Gender"] = df.Gender.map(mapping_Gender)
 
     # in a first time, we'll only use numerical columns
-    features = ["CreditScore", "Age", "Tenure", "Balance", "NumOfProducts", "HasCrCard", "IsActiveMember", "EstimatedSalary",
+    features = ["CreditScore", "Age", "Tenure", "Balance", "NumOfProducts",
+                 "HasCrCard", "IsActiveMember", "EstimatedSalary",
                  "kfold", "Exited", "Geography", "Gender"]
-    
     df = df[features]
 
     df_train = df[df.kfold != fold].reset_index(drop=True)
     df_valid = df[df.kfold == fold].reset_index(drop=True)
 
-    x_train = df_train.drop("Exited", axis=1).values
+    x_train = df_train.drop(["Exited", "kfold"], axis=1).values
     y_train = df_train.Exited.values
 
-    x_valid = df_valid.drop("Exited", axis=1).values
+    x_valid = df_valid.drop(["Exited", "kfold"], axis=1).values
     y_valid = df_valid.Exited.values
 
     # initialize simple decision tree classifier from sklearn
@@ -47,18 +37,15 @@ def run(fold, model):
     clf.fit(x_train, y_train)
 
     # create predictions for validation samples
-    preds = clf.predict(x_valid)
+    preds = clf.predict_proba(x_valid)[:, 1]
 
     # calculate roc auc
     auc = metrics.roc_auc_score(y_valid, preds)
     print(f"Fold--->{fold}, AUC score={auc}")
+    #print(f"Confusion Matrix:\n {metrics.confusion_matrix(y_valid, preds)}")
 
     # save the model
-    joblib.dump(
-        clf,
-        os.path.join(config.MODEL_OUTPUT, f"df_{fold}.bin")
-    )
-
+    joblib.dump(clf, os.path.join(config.MODEL_OUTPUT, f"{model}_{fold}.pkl"))
 
 if __name__ == "__main__":
     # initialize ArgumentParser class of argparse
@@ -77,5 +64,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # run the fold specified by command line arguments
-    run(fold=args.fold,
-        model=args.model)
+    run(fold=args.fold, model=args.model)

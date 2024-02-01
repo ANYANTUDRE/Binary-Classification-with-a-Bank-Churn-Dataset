@@ -1,3 +1,6 @@
 BASE_TRAINING_FILE = "../input/train.csv"
 TRAINING_FILE = "../input/train_folds.csv"
+ORIGINAL_FILE = "../input/Churn_Modelling.csv"
+TEST_FILE = "../input/test.csv"
+SAMPLE_FILE = "../input/sample_submission.csv"
 MODEL_OUTPUT  = "../models/"
