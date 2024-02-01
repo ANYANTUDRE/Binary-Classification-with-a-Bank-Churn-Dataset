@@ -10,7 +10,9 @@ models = {
                                                     max_iter=500, max_leaf_nodes=60, 
                                                     max_depth=13,
                                                     ),  # bon score, rivalise avec XGBoost
+
     #"extra": ensemble.ExtraTreesClassifier(), # nope, pas mieux que les autres gbdt
+    
     "xgb": xgb.XGBClassifier(n_jobs=-1, 
                              #eta=0.01, 
                              #gamma=0.5, 

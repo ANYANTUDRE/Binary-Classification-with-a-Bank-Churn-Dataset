@@ -5,16 +5,12 @@ from sklearn.model_selection import StratifiedKFold, StratifiedGroupKFold
 
 
 if __name__ == "__main__":
-    df = pd.read_csv(config.BASE_TRAINING_FILE) #.drop('id', axis=1)
-    #original = pd.read_csv(config.ORIGINAL_FILE)
-    #original = original.drop('RowNumber', axis=1).dropna(axis=0, inplace=True)
-
-    # concatenate datasets
-    #df = pd.concat([train, original], ignore_index=True)
-    #df = df.drop_duplicates()
+    # import the dataset
+    df = pd.read_csv(config.BASE_TRAINING_FILE)
 
     # create new column called kfold and fill it with -1
     df["kfold"] = -1
+    
     # randomize the rows of the data
     df = df.sample(frac=1).reset_index(drop=True)
 

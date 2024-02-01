@@ -28,15 +28,14 @@ if __name__ == "__main__":
     "l2_regularization":  np.arange(0, 10, 1),
     }
 
-    model = model_selection.RandomizedSearchCV(
-    estimator=classifier, 
-    param_distributions=param_grid, 
-    n_iter=20,
-    scoring="roc_auc",
-    verbose=10, 
-    n_jobs=1,
-    cv=5
-    )
+    model = model_selection.RandomizedSearchCV( estimator=classifier, 
+                                                param_distributions=param_grid, 
+                                                n_iter=20,
+                                                scoring="roc_auc",
+                                                verbose=10, 
+                                                n_jobs=1,
+                                                cv=5)
+
     # fit the model and extract best score
     model.fit(X, y)
     print(f"Best score: {model.best_score_}")
