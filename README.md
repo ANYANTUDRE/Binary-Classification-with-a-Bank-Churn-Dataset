@@ -1,39 +1,19 @@
 # Bank Churn Prediction ML App
 
 The main goal of this project is **to predict whether a customer continues with their account or closes it (e.g., churns).** 
-It is the 1st episode of Kaggle Playground Series - Season 4. 
-![](media\kaggle comp page .jpg) 
+It is the 1st episode of Kaggle Playground Series - Season 4.
+
+![](media/kaggle_comp_page.jpg) 
 
 
-- **App Link:** [Bank Churn Prediction ML App](https://anyantudre-binary-classification-with-a-bank-churn-dataset.streamlit.app/)
+- **App Link:** [Bank Churn Prediction ML App](https://anyantudre-binary-classification-with-a-bank-churn-dataset.streamlit.app/)  
+
+- **Evaluation Metric:**
+The evaluation metric is **area under the ROC curve** between the predicted probability and the observed target  
 
 - **App Demo Screenshot:**   
 ![](media/app1.png)
 ![](media/app2.png)
-
-
-## Results and evaluation
-
-- **Evaluation Metric:**
-The evaluation metric is **area under the ROC curve** between the predicted probability and the observed target
-
-
-- **My Approach:** Firstly I setted up a local 5 fold cross validation using the create_folds.py file. 
-Then, I tried five tree-based models (eg. xgboost, lightgbm, catboost, gbm and histgbm) and then I ensemble the predictions on a weigthwed averave.
-I tried different Feature Engineering methods but looked like they didn't improve too much the score. 
-As I didn't have too much time for this competition I only tuned some hyperparameters of the histgbm model using RandomizedSearchCV. 
-
-
-- **[First place solution wrappup:](https://www.kaggle.com/competitions/playground-series-s4e1/discussion/472502)**
-  1. It was important to recognize that CustomerId and Surname are high-cardinality categorical variables and encode them correctly.
-  2. Catboost was enough to win this competition. My final submission was based on one Catboost model averaged across 20 folds.
-  3. If you tuned Catboost parameters well you would be in Top 3. There're a lot of parameters to tune and there are many ways to encode categorical features. I now realize that my 1st place solution can be improved even further.
-
-
-- **Kaggle Leaderboard results:**
-    - Public  LB AUC score : 0.88666
-    - Private LB AUC score : 0.88938
-    - LB rank : Although I didn't commit 100% to this competition, I finished 1101 out of 3633 participants (Top 30%). I'm sure I'll do better in future Playgroud series :)
 
 
 ## Tech Stack
@@ -88,6 +68,28 @@ As I didn't have too much time for this competition I only tuned some hyperparam
 | README.md | markdown file where I described the project. It's what you're reading right now |
 | app.py | python file for streamlit deployement |
 | requirements.txt | contains all the packages neede by the project to run and their versions|
+
+
+## Results and evaluation
+
+
+- **My Approach:** Firstly I setted up a local 5 fold cross validation using the create_folds.py file. 
+Then, I tried five tree-based models (eg. xgboost, lightgbm, catboost, gbm and histgbm) and then I ensemble the predictions on a weigthwed averave.
+I tried different Feature Engineering methods but looked like they didn't improve too much the score. 
+As I didn't have too much time for this competition I only tuned some hyperparameters of the histgbm model using RandomizedSearchCV. 
+
+
+- **[First place solution wrappup:](https://www.kaggle.com/competitions/playground-series-s4e1/discussion/472502)**
+  1. It was important to recognize that CustomerId and Surname are high-cardinality categorical variables and encode them correctly.
+  2. Catboost was enough to win this competition. My final submission was based on one Catboost model averaged across 20 folds.
+  3. If you tuned Catboost parameters well you would be in Top 3. There're a lot of parameters to tune and there are many ways to encode categorical features. I now realize that my 1st place solution can be improved even further.
+
+
+- **My Kaggle Leaderboard results:**
+    - Public  LB AUC score : 0.88666
+    - Private LB AUC score : 0.88938
+    - LB rank : Although I didn't commit 100% to this competition, I finished 1101 out of 3633 participants (Top 30%). I'm sure I'll do better in future Playgroud series :)
+
 
 
 ## How to Run this Project Locally?
