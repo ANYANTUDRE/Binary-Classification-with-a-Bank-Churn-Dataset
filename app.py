@@ -13,15 +13,15 @@ def main():
         """
     st.markdown(html_temp, unsafe_allow_html = True)
 
-    CustomerId = st.number_input("CustomerId", 12345678)
-    CreditScore = st.number_input("CreditScore", 600)
-    Age = st.slider("Age", 18, 100)
+    CustomerId = st.number_input("CustomerId", 0)
+    CreditScore = st.number_input("CreditScore", 0)
+    Age = st.slider("Age", 10, 100)
     Tenure = st.selectbox("Tenure", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     Balance = st.number_input("Balance", 0)
     NumOfProducts = st.selectbox("NumOfProducts", [1, 2, 3, 4])
     HasCrCard = st.selectbox("HasCrCard", [0, 1])
     IsActiveMember = st.selectbox("IsActiveMember", [0, 1])
-    EstimatedSalary = st.number_input("EstimatedSalary", 1000)
+    EstimatedSalary = st.number_input("EstimatedSalary", 0)
     Geography = st.selectbox("Geography", ["France", "Spain", "Germany"])
     Gender = st.selectbox("Gender", ["Male", "Female"])
 

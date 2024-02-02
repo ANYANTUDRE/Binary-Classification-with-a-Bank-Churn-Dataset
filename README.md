@@ -1,7 +1,8 @@
 # Bank Churn Prediction ML App
 
 The main goal of this project is **to predict whether a customer continues with their account or closes it (e.g., churns).** 
-It is the 1st episode of Kaggle Playground Series - Season 4.  
+It is the 1st episode of Kaggle Playground Series - Season 4. 
+![](media\kaggle comp page .jpg) 
 
 
 - **App Link:** [Bank Churn Prediction ML App](https://anyantudre-binary-classification-with-a-bank-churn-dataset.streamlit.app/)
@@ -16,14 +17,17 @@ It is the 1st episode of Kaggle Playground Series - Season 4.
 - **Evaluation Metric:**
 The evaluation metric is **area under the ROC curve** between the predicted probability and the observed target
 
-- **Local cross-validation Results:**
-    - ![XGBoost:]()
 
-    - ![HistGBM:]()
+- **My Approach:** Firstly I setted up a local 5 fold cross validation using the create_folds.py file. 
+Then, I tried five tree-based models (eg. xgboost, lightgbm, catboost, gbm and histgbm) and then I ensemble the predictions on a weigthwed averave.
+I tried different Feature Engineering methods but looked like they didn't improve too much the score. 
+As I didn't have too much time for this competition I only tuned some hyperparameters of the histgbm model using RandomizedSearchCV. 
 
-    - ![LightGBM:]()
 
-    - ![Catboost:]()
+- **[First place solution wrappup:](https://www.kaggle.com/competitions/playground-series-s4e1/discussion/472502)**
+  1. It was important to recognize that CustomerId and Surname are high-cardinality categorical variables and encode them correctly.
+  2. Catboost was enough to win this competition. My final submission was based on one Catboost model averaged across 20 folds.
+  3. If you tuned Catboost parameters well you would be in Top 3. There're a lot of parameters to tune and there are many ways to encode categorical features. I now realize that my 1st place solution can be improved even further.
 
 
 - **Kaggle Leaderboard results:**
@@ -42,11 +46,11 @@ The evaluation metric is **area under the ROC curve** between the predicted prob
 
 ## Data sources
 
- - [Competition Dataset](https://www.kaggle.com/competitions/playground-series-s4e1/data)
+ - [Competition Dataset:](https://www.kaggle.com/competitions/playground-series-s4e1/data)
  The dataset for this competition (both train and test) was generated from a deep learning model trained on the Bank Customer Churn Prediction dataset. Feature distributions are close to, but not exactly the same, as the original.
 
 
- - [Original Dataset](https://www.kaggle.com/datasets/shubhammeshram579/bank-customer-churn-prediction)
+ - [Original Dataset:](https://www.kaggle.com/datasets/shubhammeshram579/bank-customer-churn-prediction)
  The bank customer churn dataset is a commonly used dataset for predicting customer churn in the banking industry. It contains information on bank customers who either left the bank or continue to be a customer. The dataset includes the following attributes:
 
 | Column name             | Description                                                                |
@@ -69,13 +73,14 @@ The evaluation metric is **area under the ROC curve** between the predicted prob
 
 - **Screenshot:**  
 
-![Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![](media/project_structure.jpg)
 
 - **Description:**
 
 | folders             | Description                                                                |
 | ----------------- | ------------------------------------------------------------------ |
 | input/ | consists of all the input files and data for the project (train, test, original, sample_submission) |
+| media/ | only contains images for the README.md file |
 | models/ | keeps all the trained models saved with joblib. |
 | notebooks/ | all jupyter notebooks (i.e. any *.ipynb file) are stored in the notebooks folder |
 | output/ | contains all the models predictions(i.e submissions to the competition) |
@@ -134,7 +139,4 @@ All kind of contributions are always welcome!
     year = {2024},  
     url = {https://kaggle.com/competitions/playground-series-s4e1}  
 }
-
-- **Repo:**
-[MIT](https://choosealicense.com/licenses/mit/)
 
