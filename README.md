@@ -76,7 +76,14 @@ The evaluation metric is **area under the ROC curve** between the predicted prob
 - **My Approach:** Firstly I setted up a local 5 fold cross validation using the create_folds.py file. 
 Then, I tried five tree-based models (eg. xgboost, lightgbm, catboost, gbm and histgbm) and then I ensemble the predictions on a weigthwed averave.
 I tried different Feature Engineering methods but looked like they didn't improve too much the score. 
-As I didn't have too much time for this competition I only tuned some hyperparameters of the histgbm model using RandomizedSearchCV. 
+As I didn't have too much time for this competition I only tuned some hyperparameters of the histgbm model using RandomizedSearchCV.   
+
+What's more, it seems that the winner actually used only CatBoost, and I'm happy about that (I can even brag about it) 
+because I was probably the first to publish a public notebook on Catboost baseline at the beginning of the competition. 
+
+
+- Here is the link to my first notebook about Catboost baselise[[PS4-EP1] Bank Churn | EDA📊 + CatBoost baseline🦾](https://www.kaggle.com/code/waalbannyantudre/ps4-ep1-bank-churn-eda-catboost-baseline)
+I also added it to the notebooks/ folder.
 
 
 - **[First place solution wrappup:](https://www.kaggle.com/competitions/playground-series-s4e1/discussion/472502)**
