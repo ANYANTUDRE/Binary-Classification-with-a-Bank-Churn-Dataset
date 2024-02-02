@@ -1,17 +1,16 @@
 # Bank Churn Prediction ML App
 
-The main goal of this project is to predict whether a customer continues with their account or closes it (e.g., churns). 
-It is the 1st episode of Kaggle Playground Series - Season 4.
+The main goal of this project is **to predict whether a customer continues with their account or closes it (e.g., churns).** 
+It is the 1st episode of Kaggle Playground Series - Season 4.  
 
-## Application Screenshots
 
 - **App Link:** [Bank Churn Prediction ML App](https://anyantudre-binary-classification-with-a-bank-churn-dataset.streamlit.app/)
 
-- **App Screenshot:**
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+- **App Demo Screenshot:**   
+![](media/app1.png)
+![](media/app2.png)
 
-- **Demo:**
-![Demo](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
 ## Results and evaluation
 
 - **Evaluation Metric:**
@@ -32,12 +31,15 @@ The evaluation metric is **area under the ROC curve** between the predicted prob
     - Private LB AUC score : 0.88938
     - LB rank : Although I didn't commit 100% to this competition, I finished 1101 out of 3633 participants (Top 30%). I'm sure I'll do better in future Playgroud series :)
 
+
 ## Tech Stack
 
-**Data Visualization & Manipulation:** matplotlib, seaborn, numpy & pandas.  
-**Model Building:** scikit-learn, xgboost, lightgbm & catboost.   
-**Deployment:** joblib & streamlit.     
-**Versionning & Others:** Git, Github, VSCode, os & argparse.  
+- **Data Visualization & Manipulation:** matplotlib, seaborn, numpy & pandas.  
+- **Model Building:** scikit-learn, xgboost, lightgbm & catboost.   
+- **Deployment:** joblib & streamlit.     
+- **Versionning & Others:** Git, Github, VSCode, os & argparse.   
+
+
 ## Data sources
 
  - [Competition Dataset](https://www.kaggle.com/competitions/playground-series-s4e1/data)
@@ -65,7 +67,7 @@ The evaluation metric is **area under the ROC curve** between the predicted prob
 
 ## Code Structure
 
-- **Screenshot:**
+- **Screenshot:**  
 
 ![Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
@@ -76,14 +78,14 @@ The evaluation metric is **area under the ROC curve** between the predicted prob
 | input/ | consists of all the input files and data for the project (train, test, original, sample_submission) |
 | models/ | keeps all the trained models saved with joblib. |
 | notebooks/ | all jupyter notebooks (i.e. any *.ipynb file) are stored in the notebooks folder |
-| output | contains all the models predictions(i.e submissions to the competition) |
+| output/ | contains all the models predictions(i.e submissions to the competition) |
 | src/ | contains all the python scripts(i.e. any *.py file) as well as a bash script (i.e. run.sh file) to automate model training process |
 | README.md | markdown file where I described the project. It's what you're reading right now |
 | app.py | python file for streamlit deployement |
 | requirements.txt | contains all the packages neede by the project to run and their versions|
 
 
-## Run Locally
+## How to Run this Project Locally?
 
 1. First fork the repo to your GitHub account
 
@@ -111,10 +113,10 @@ The evaluation metric is **area under the ROC curve** between the predicted prob
   streamlit run app.py
 ```
 
+
 ## Contributing
 
-Contributions are always welcome!
-
+All kind of contributions are always welcome!
 
 
 ## Authors
@@ -124,15 +126,15 @@ Contributions are always welcome!
 
 ## License
 
-- Dataset :
+- **Competition Dataset:**  
 @misc{playground-series-s4e1,  
     author = {Walter Reade, Ashley Chow},  
     title = {Binary Classification with a Bank Churn Dataset },  
     publisher = {Kaggle},  
     year = {2024},  
-    url = {https://kaggle.com/competitions/playground-series-s4e1}
+    url = {https://kaggle.com/competitions/playground-series-s4e1}  
 }
 
-- Repo:
+- **Repo:**
 [MIT](https://choosealicense.com/licenses/mit/)
 
