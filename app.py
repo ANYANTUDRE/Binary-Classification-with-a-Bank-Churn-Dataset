@@ -19,7 +19,7 @@ def main():
     Tenure = st.selectbox("Tenure", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     Balance = st.number_input("Balance", 0)
     NumOfProducts = st.selectbox("NumOfProducts", [1, 2, 3, 4])
-    HasCrCard = st.selectbox("selectbox", [0, 1])
+    HasCrCard = st.selectbox("HasCrCard", [0, 1])
     IsActiveMember = st.selectbox("IsActiveMember", [0, 1])
     EstimatedSalary = st.number_input("EstimatedSalary", 1000)
     Geography = st.selectbox("Geography", ["France", "Spain", "Germany"])
@@ -61,7 +61,7 @@ def main():
         if output > threshold:
             st.success(f"Predicted Probability : {output}. \nThis customer is likely to churn :thumbsdown:")
         else:
-            st.success(f"Predicted Probability : {output}. \nThis customer is likely to churn :thumbsup:")
+            st.success(f"Predicted Probability : {output}. \nThis customer isn't likely to churn :thumbsup:")
 
 if __name__=='__main__': 
     main()
